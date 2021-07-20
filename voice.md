@@ -26,7 +26,7 @@ You can read them literally. They are for the line clears.
 ### `mini`, `b2b`, `b2b2b`
 These will be combined with the spin or Techrash line clears.
 
-(read "b2b" as "Back to Back", `b2b2b` as "Back to Back to Back")
+(read "b2b" as "Back to Back", "b2b2b" as "Back to Back to Back")
 
 ### `[piece]-spin`
 Each of these will combine into various voice lines, for example, Z-Spin, Z-Spin Single, Z-Spin Double, Z-Spin Triple, Z-Spin Techrash.
@@ -58,19 +58,3 @@ A welcome when you open the game, like Osu! has.
 ## Potential future voice lines
 None (for now)
 
-
-
-
-	test, happy, doubt, sad, egg
-	这几个是特殊音效，具体使用情况不定
-	第一个是测试音量用的音效，尽量短一点，长度在半秒内
-	其他是彩蛋音效(不录也行, 反正一般不会触发)
-
-	welcome_voc
-	进入游戏播放的欢迎语音(类似osu)
-
-目前没有用到但是将要加入的:
-	split
-
-未来可能加入的:
-	暂无
