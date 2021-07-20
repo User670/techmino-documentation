@@ -4,7 +4,7 @@ This documentation is for creating a mode for Techmino.
 Original: https://github.com/26F-Studio/Techmino/blob/498a0ef7e82f0f37fe60aa861454ea3ae129b2b0/document/mode.txt , updated 2021-07-19
 
 ## Specs
-A mode file is a legal Lua file which returns a `table`. The table should contain:
+A mode file is a valid Lua file which returns a `table`. The table should contain:
 
 ### color
 Required. Color of the mode's description text (the text that shows on top right after you select it)
