@@ -1,7 +1,7 @@
 # Modes
 This documentation is for creating a mode for Techmino.
 
-Original: https://github.com/26F-Studio/Techmino/blob/498a0ef7e82f0f37fe60aa861454ea3ae129b2b0/document/mode.txt , updated 2021-07-19
+Original: https://github.com/26F-Studio/Techmino/blob/a64edc70ed2bb3c17f38485fa77fed3e27e8e941/document/mode.txt , updated 2021-08-26
 
 ## Specs
 A mode file is a valid Lua file which returns a `table`. The table should contain:
@@ -44,6 +44,7 @@ Required. Mode environment variable, decides properties of the game.
   `ihs`|`true`|Allow initial hold
   `irs`|`true`|Allow initial rotation
   `ims`|`true`|Allow initial movement
+  `skinSet`|(Player's settings)|Which skin (spritesheet) to use. You can only use built-in skins
   `skin`|(Player's settings)|Block colors. A table (array) with 25 integers from 1 to 16
   `face`|(Player's settings)|Piece spawn orientation. A table (array) with 25 integers from 0 to 3
   `block`|`true`|Whether to display currently controlling piece
@@ -94,7 +95,11 @@ Required. Mode environment variable, decides properties of the game.
 </details>
 
 ### load
-Required. Initialization function of the mode. Usually you just need to create a player.
+~~Required. Initialization function of the mode. Usually you just need to create a player.~~
+
+*Translator's note: It has since changed but the docs didn't update. A more accurate description is:**
+
+*Optional. Initialization function of the mode. If omitted, automatically creates a player with ID of 1.*
 
 No inputs.
 
@@ -149,17 +154,18 @@ return{ --Return a table. Of course you can define a few constants or functions 
 	color=COLOR.green, --The color
 	env={ --Mode environmental variables
 		drop=60,lock=60,
-		dropPiece=function(P)if P.stat.row>=40 then P			win('finish')end end,
+		dropPiece=function(P)if P.stat.row>=40 then P:win('finish')end end,
 		bg='bg2',bgm='race',
 	},
-	load=function() --Create a player
+	load=function() -- Mode loading function. Here we've just created a player, which is what you do for most single player mdoes.
+	                -- You can omit this function in your mode, and the function here will be used by default.
 		PLY.newPlayer(1) --The 1 is the player ID. By default the player controls Player 1
 	end,
 	mesDisp=function(P) --Display info for Sprint 40
 		setFont(55)
 		local r=40-P.stat.row
 		if r<0 then r=0 end
-		mStr(r,69,265) --Display the remaining lines (r)
+		mStr(r,63,265) --Display the remaining lines (r)
 		PLY.draw.drawTargetLine(P,r) --Draw the target line using a built-in function
 	end,
 	score=function(P)return{P.stat.time,P.stat.piece}end, --Key information to keep at the end of a game
