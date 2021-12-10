@@ -180,7 +180,7 @@ return{ --Return a table. Of course you can define a few constants or functions 
 		T<=52.6 and 3 or --B rank requirements
 		T<=92.9 and 2 or --C rank requirements
 		T<=183 and 1 or --D rank requirements aka requirements to unlock modes
-		0 --Requiremnets to have score logged to leaderboards
+		0 --Requirements to have score logged to leaderboards
 	end,
 }
 ```
